@@ -24,6 +24,9 @@ def init_db():
             )
         ''')
 
+# ✅ initialize DB even if __name__ != "__main__"
+init_db()
+
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -68,6 +71,7 @@ def post_comment():
 
     return jsonify({"status": "success"})
 
+# ✅ bu joyni olib tashlang yoki pass bilan qoldiring
 if __name__ == "__main__":
-    init_db()
-    app.run(host='0.0.0.0', port=5300, debug=True)
+    # app.run(host='0.0.0.0', port=5300, debug=True)
+    pass
